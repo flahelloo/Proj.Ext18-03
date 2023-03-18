@@ -1,0 +1,95 @@
+Desafio 1 - Calculando Médias Harmônicas e Geométricas...
+- Capture quatro números do teclado (N) e calcule as médias harmônica e geométricas destes.
+import random
+
+HARMÔNICA
+num1= float(input("Digite um número"))
+num2= float(input("Digite outro número"))
+num3= float(input("Digite mais um número"))
+num4= float(input("Digite o último número"))
+
+print(4 / (1/num1) + (1/num2) + (1/num3))
+
+#GEOMÉTRICA
+num1 = float(input("Digite um número"))
+num2 = float(input("Digite outro número"))
+num3 = float(input("Digite mais um número"))
+num4 = float(input("Digite o último número"))
+
+print(num1 * num2 * num3 * num4 **(1./3.))
+
+Desafio 2 - Ordenando 5 Números
+- Capture cinco números de forma randômica e ordene-os em ordem decrescente.
+import random
+
+num1 = float(input("Digite um número"))
+num2 = float(input("Digite outro número"))
+num3 = float(input("Digite mais um número"))
+num4 = float(input("Digite outro número"))
+num5 = float(input("Digite o último número"))
+
+temp = 0
+controle = True
+
+while controle:
+    controle = False
+    if (num1 < num2):
+        temp = num1
+        num1 = num2
+        num2 = temp
+        controle = True
+    if (num2 < num3):
+        temp = num2
+        num2 = num3
+        num3 = temp
+        controle = True
+    if (num3 < num4):
+        temp = num3
+        num3 = num4
+        num4 = temp
+        controle = True
+    if (num4 < num5):
+        temp = num4
+        num4 = num5
+        num5 = temp
+        controle = True
+
+
+print(num1, num2, num3, num4, num5)
+
+Desafio 3 - Controlando a Vazão de um sistema hidráulico
+   Um sistema hidráulico que contem 1000 m3 deve manter manter uma pressão ideal entre 4 litros (aproximadamente 4,2 kgf)
+   por metro cúbico (mínimo) e no máximo 6 litros (aproximadamente 6,3 kgf) por metro cúbico (Máximo).
+   Para conceber o software que controla o sistema considere:
+
+
+  - No início da operação há 5000 litros de água no tanque;
+  - O sistema recebe, de forma aleatória, entre 800 a 1000 litros de água por hora;
+  - O sistema pode esvaziar, quando quiser, entre 40 a 60 litros de água;
+  - O sistema não deve de forma alguma ficar fora dos parâmetros de pressão ideal
+
+ Conceba o software que irá fazer o controle automático da pressão deste sistema hidráulico
+
+
+import random
+
+tanque = 5000
+temp = tanque
+
+while (tanque < 6000) and (tanque > 4000):
+    while temp > 4000:  #Esvaziando
+        temp = temp - random.randint(40,60)
+        if (temp > 4200):
+            tanque = temp
+            print("Quantidade de água após esvaziamento parcial: ", tanque)
+        else:
+            break
+
+    print("Quantidade de água após esvaziamento total: ", tanque)
+
+    tanque = tanque + random.randint(800,1000)
+    temp = tanque
+    print("Quantidade de água após enchimento: ", tanque)
+
+    input()
+
